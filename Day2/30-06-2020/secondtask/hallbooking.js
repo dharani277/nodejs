@@ -3,8 +3,8 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 app.use(bodyParser.json());
-var createRoom = {},
-  room = {};
+var createRoom = [],
+  room = [];
 app.post("/createRoom", (req, res) => {
   createroom.push(req.body);
   res.json({ request: "received" });
