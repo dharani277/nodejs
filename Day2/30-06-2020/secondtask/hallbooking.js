@@ -6,7 +6,7 @@ app.use(bodyParser.json());
 var createRoom = [],
   room = [];
 app.post("/createRoom", (req, res) => {
-  createroom.push(req.body);
+  createRoom.push(req.body);
   res.json({ request: "received" });
 });
 app.post("/room", (req, res) => {
