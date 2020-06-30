@@ -3,13 +3,15 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 app.use(bodyParser.json());
+var createRoom = {},
+  room = {};
 app.post("/createRoom", (req, res) => {
   createroom.push(req.body);
   res.json({ request: "received" });
 });
 app.post("/room", (req, res) => {
   room.push(req.body);
-  res.json({ request: " post received" });
+  res.json({ request: "post received" });
 });
 app.get("/bookedData", (req, res) => {
   let details = room.map((data) => {
@@ -22,14 +24,14 @@ app.get("/bookedData", (req, res) => {
       End_Time: data.End_Time,
     };
   });
+  console.log(details);
   res.json(details);
 });
 app.get("/customersData", (req, res) => {
-  let details = room.map((data) => {
+  let information = room.map((data) => {
     return { customer_name: data.Customer_Name, Room_ID: data.Room_ID };
   });
-
-  res.json(details);
+  res.json(information);
 });
 app.listen(process.env.PORT || port, () => {
   console.log("welcome to Meeting Hall Booking");
